@@ -14,6 +14,9 @@ server.use(express.json());
 const userRoute = require("./api/routes/usersRoute");
 userRoute(server);
 
+const serviceRoute = require("./api/routes/serviceRoute");
+serviceRoute(server);
+
 sequelize.sync().then(()=>{
     server.listen(port, hostname, ()=> {
         console.log(`Serveur qui tourne sur le port ${port}`);
