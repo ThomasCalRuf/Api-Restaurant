@@ -11,7 +11,7 @@ TipsPayments.init({
     autoIncrement: true
   },
   amount:{
-    type :DataTypes.INTEGER,
+    type :DataTypes.FLOAT,
     allowNull:false
   },
   id_user:{

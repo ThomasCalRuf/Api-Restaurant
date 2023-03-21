@@ -11,6 +11,28 @@ const server = express();
 server.use(express.urlencoded());
 server.use(express.json());
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerOptions = {
+    definition: {
+      info: {
+        title: 'Api RESTaurant',
+        contact: {
+          name: 'Thomas Calvete Ruffier',
+        },
+      },
+      servers: [
+        {
+          url: 'http://localhost:3000',
+          description: 'Serveur local',
+        },
+      ],
+    },
+    apis: ['./api/routes/swagger.js'],
+};
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 const userRoute = require("./api/routes/usersRoute");
 userRoute(server);
 
