@@ -17,6 +17,9 @@ userRoute(server);
 const serviceRoute = require("./api/routes/serviceRoute");
 serviceRoute(server);
 
+const tipsController = require("./api/routes/tipsRoute");
+tipsController(server);
+
 sequelize.sync().then(()=>{
     server.listen(port, hostname, ()=> {
         console.log(`Serveur qui tourne sur le port ${port}`);
