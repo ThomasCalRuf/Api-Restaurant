@@ -355,22 +355,22 @@
  *      summary: Mettre à jour un Tips
  *      description: Mettre à Jour Le tips
  *      parameters:
- *        - in: path
- *         name: id_service
- *         type: integer
- *         required: true
- *         description: id du service
- *       - in: body
- *         name: tips
- *         description: Les informations de la table.
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             name:
- *               type: string
- *             tips:
- *               type: integer
+ *         - in: path
+ *           name: id_service
+ *           type: integer
+ *           required: true
+ *           description: id du service
+ *         - in: body
+ *           name: tips
+ *           description: Les informations de la table.
+ *           required: true
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               tips:
+ *                 type: integer
  *      responses:
  *         '200':
  *            description: A successful response
