@@ -80,6 +80,7 @@ exports.deleteAUser = async (req,res)=>{
         if (user) {
             user.firstname = "Anonyme";
             user.lastname = "";
+            user.active = false;
             await user.save();
             res.status(200);
             res.json({ message: 'L\'utilisateur est supprimé avec succès.' });

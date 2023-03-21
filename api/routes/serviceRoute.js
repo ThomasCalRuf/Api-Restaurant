@@ -9,4 +9,7 @@ module.exports = (server) => {
     .get(serviceController.listAService)
     .put(serviceController.updateAService)
     .delete(serviceController.deleteAService);
+
+    server.route("/endservice/:id")
+    .put(serviceController.endService);
 }
