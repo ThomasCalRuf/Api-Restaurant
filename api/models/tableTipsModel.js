@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const RestaurantTable = require('../models/restaurantTableModel')
 
 class TableTips extends Model {}
 
@@ -16,11 +17,21 @@ TableTips.init({
   },
   id_restaurantTable: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    primaryKey: true,
+    allowNull:false,
+    references:{
+    model:'restauranttables',
+    key:'id'
+    }
   },
   id_service:{
     type: DataTypes.INTEGER,
-    allowNull: false
+    primaryKey: true,
+    allowNull:false,
+    references:{
+    model:'services',
+    key:'id'
+    }
   }
 }, {
   sequelize,
@@ -28,5 +39,7 @@ TableTips.init({
   createdAt: 'created_at',
   updatedAt: 'modified_at'
 });
+
+TableTips.belongsTo(RestaurantTable, { foreignKey: 'id_restaurantTable' });
 
 module.exports = TableTips;

@@ -16,7 +16,7 @@ RestaurantTable.init({
   },
 }, {
   sequelize,
-  modelName: 'restaurantTable',
+  modelName: 'restauranttables',
   createdAt: 'created_at',
   updatedAt: 'modified_at'
 });
