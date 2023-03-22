@@ -15,6 +15,7 @@
  *  /admin/login:
  *    post:
  *      summary: Log en Temps qu'Admin
+ *      tags: [Admin]
  *      description: Récupere le token Pour pouvoir aller sur les liens sécuriser
  *      parameters:
  *       - in: body
@@ -41,6 +42,7 @@
  *  /users:
  *    get:
  *      summary: Avoir tous les Utilisteurs
+ *      tags: [User]
  *      description: Avoir tous les utilisateur
  *      responses:
  *          '200':
@@ -55,6 +57,7 @@
  *  /users:
  *    post:
  *      summary: Créer un Utilisateur
+ *      tags: [User]
  *      description: Créer un utilisateur et son TipsPayment
  *      security:
 *         - jwt: []
@@ -87,6 +90,7 @@
  *  /users/{id}:
  *    get:
  *      summary: Avoir un Utilisateur
+ *      tags: [User]
  *      description: Avoir un Utilisateur avec son ID et son TipsPayment
  *      security:
 *         - jwt: []
@@ -111,6 +115,7 @@
  *  /users/{id}:
  *    put:
  *      summary: Mettre à jour un Utilisateur
+ *      tags: [User]
  *      description: Mettre à Jour L'utilisateur
  *      security:
 *         - jwt: []
@@ -150,6 +155,7 @@
  *  /users/{id}:
  *    delete:
  *      summary: Supprimer un Utilisateur
+ *      tags: [User]
  *      description: Met L'utilisateur en Anonyme
  *      security:
 *         - jwt: []
@@ -176,6 +182,7 @@
  *  /service:
  *    get:
  *      summary: Avoir tous les Services
+ *      tags: [Service]
  *      description: Avoir tous les Services
  *      responses:
  *          '200':
@@ -190,6 +197,7 @@
  *  /service:
  *    post:
  *      summary: Créer un Service
+ *      tags: [Service]
  *      description: Créer un Service, Prend les userid qui font parti du service pour les mettre dans ServiceUser. UsersID reçoit un string "1,2,3" Attention séparer bien les id par des virgules
  *      parameters:
  *       - in: body
@@ -219,6 +227,7 @@
  *  /service/{id}:
  *    get:
  *      summary: Avoir un Service
+ *      tags: [Service]
  *      description: Avoir un Service avec son ID
  *      parameters:
  *         - in: path
@@ -241,6 +250,7 @@
  *  /service/{id}:
  *    put:
  *      summary: Mettre à jour un Service
+ *      tags: [Service]
  *      description: Mettre à Jour Service et ServiceUser
  *      parameters:
  *        - in: path
@@ -277,6 +287,7 @@
  *  /service/{id}:
  *    delete:
  *      summary: Supprimer un Service
+ *      tags: [Service]
  *      description: Supprime un Service ainsi que tous Les ServiceUser qui vont avec
  *      parameters:
  *        - in: path
@@ -299,6 +310,7 @@
  *  /endservice/{id}:
  *    put:
  *      summary: Met Fin au service
+ *      tags: [Service]
  *      description: Met Fin au service. Permet de récuperer les Tips du service et de les redistribuer Aux Utilisateur présent
  *      parameters:
  *        - in: path
@@ -323,6 +335,7 @@
  *  /service/{id_service}/table:
  *    get:
  *      summary: Avoir tous les Tables
+ *      tags: [Tips]
  *      description: Avoir tous les Tables d'un service, avec Le nom et Le tips
  *      parameters:
  *       - in: path
@@ -343,6 +356,7 @@
  *  /service/{id_service}/table:
  *    post:
  *      summary: Créer un Tips sur une Table
+ *      tags: [Tips]
  *      description: Créer une table Avec son nom (Si la table à le meme nom qu'une autre va chercher juste l'id de la table) et son Tips
  *      parameters:
  *       - in: path
@@ -374,6 +388,7 @@
  *  /tips/{id}:
  *    get:
  *      summary: Avoir un Tips
+ *      tags: [Tips]
  *      description: Avoir La Table ainsi que son tips
  *      parameters:
  *         - in: path
@@ -396,6 +411,7 @@
  *  /tips/{id}:
  *    put:
  *      summary: Mettre à jour un Tips
+ *      tags: [Tips]
  *      description: Mettre à Jour Le tips
  *      parameters:
  *         - in: path
@@ -429,6 +445,7 @@
  *  /tips/{id}:
  *    delete:
  *      summary: Supprimer un Tips
+ *      tags: [Tips]
  *      description: Supprime le tips mais pas la table
  *      parameters:
  *        - in: path
@@ -443,4 +460,27 @@
  *           description: Erreur de serveur lors de la suppresion du user
  *         '404':
  *           description: User non trouvé
+ */
+
+/**
+ * @swagger
+ * paths:
+ *  /stats/month/{month}:
+ *    get:
+ *      summary: Avoir Stats du mois
+ *      tags: [Stats]
+ *      description: Avoir Les montants des tips du mois
+ *      parameters:
+ *         - in: path
+ *           name: month
+ *           type: integer
+ *           required: true
+ *           description: id du service
+ *      responses:
+ *         '200':
+ *            description: A successful response
+ *         '500':
+ *           description: Erreur de serveur lors de la récupération du service
+ *         '404':
+ *           description: Service non trouvé
  */
