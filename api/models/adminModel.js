@@ -16,7 +16,7 @@ Admin.init({
   }
 }, {
   sequelize,
-  modelName: 'admin',
+  modelName: 'admins',
   createdAt: 'created_at',
   updatedAt: 'modified_at'
 });

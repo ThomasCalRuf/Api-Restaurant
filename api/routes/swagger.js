@@ -1,3 +1,38 @@
+/* SWAGGER Admin */
+
+/**
+* @swagger
+* securityDefinitions:
+*   jwt:
+*     type: apiKey
+*     name: Authorization
+*     in: header
+*/
+
+/**
+ * @swagger
+ * paths:
+ *  /admin/login:
+ *    post:
+ *      summary: Log en Temps qu'Admin
+ *      description: Récupere le token Pour pouvoir aller sur les liens sécuriser
+ *      parameters:
+ *       - in: body
+ *         name: user
+ *         description: Les informations du user.
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             pincode:
+ *               type: integer
+ *      responses:
+ *         '200':
+ *            description: A successful response
+ *         '500':
+ *           description: Erreur de serveur lors de la création du user
+ */
+
 /* SWAGGER USER */
 
 /**
@@ -21,6 +56,8 @@
  *    post:
  *      summary: Créer un Utilisateur
  *      description: Créer un utilisateur et son TipsPayment
+ *      security:
+*         - jwt: []
  *      parameters:
  *       - in: body
  *         name: user
@@ -34,7 +71,7 @@
  *             lastname:
  *               type: string
  *             status:
- *               type: string
+ *               type: boolean
  *             active:
  *               type: boolean
  *      responses:
@@ -51,6 +88,8 @@
  *    get:
  *      summary: Avoir un Utilisateur
  *      description: Avoir un Utilisateur avec son ID et son TipsPayment
+ *      security:
+*         - jwt: []
  *      parameters:
  *         - in: path
  *           name: id
@@ -73,6 +112,8 @@
  *    put:
  *      summary: Mettre à jour un Utilisateur
  *      description: Mettre à Jour L'utilisateur
+ *      security:
+*         - jwt: []
  *      parameters:
  *        - in: path
  *          name: id
@@ -110,6 +151,8 @@
  *    delete:
  *      summary: Supprimer un Utilisateur
  *      description: Met L'utilisateur en Anonyme
+ *      security:
+*         - jwt: []
  *      parameters:
  *        - in: path
  *          name: id

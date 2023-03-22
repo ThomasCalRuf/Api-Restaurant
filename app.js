@@ -39,8 +39,11 @@ userRoute(server);
 const serviceRoute = require("./api/routes/serviceRoute");
 serviceRoute(server);
 
-const tipsController = require("./api/routes/tipsRoute");
-tipsController(server);
+const tipsRoute = require("./api/routes/tipsRoute");
+tipsRoute(server);
+
+const adminRoute = require("./api/routes/adminRoute");
+adminRoute(server);
 
 sequelize.sync().then(()=>{
     server.listen(port, hostname, ()=> {
