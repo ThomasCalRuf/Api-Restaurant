@@ -14,13 +14,15 @@ Copiez le fichier `.env.example` en `.env` et modifiez les variables d'environne
 
 Voici un exemple de fichier `.env`:
 
-HOSTNAME_SERVER="0.0.0.0"
+JWT_Key=
+
+HOSTNAME_SERVER="0.0.0.0"  
 PORT_SERVER=3000
 
-NAME_DATABASE='api devoir'
-USER_DATABASE='root'
-PASSWORD_DATABASE=''
-HOSTNAME_DATABASE='localhost'
+NAME_DATABASE='api devoir'  
+USER_DATABASE='root'  
+PASSWORD_DATABASE=''  
+HOSTNAME_DATABASE='localhost'  
 DIALECT_DATABASE='mysql'
 
 ## Documentation

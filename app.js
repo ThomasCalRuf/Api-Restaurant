@@ -45,6 +45,9 @@ tipsRoute(server);
 const adminRoute = require("./api/routes/adminRoute");
 adminRoute(server);
 
+const statsRoute = require("./api/routes/statsRoute");
+statsRoute(server);
+
 sequelize.sync().then(()=>{
     server.listen(port, hostname, ()=> {
         console.log(`Serveur qui tourne sur le port ${port}`);
