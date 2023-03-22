@@ -470,6 +470,8 @@
  *      summary: Avoir Stats du mois
  *      tags: [Stats]
  *      description: Avoir Les montants des tips du mois
+ *      security:
+*         - jwt: []
  *      parameters:
  *         - in: path
  *           name: month
